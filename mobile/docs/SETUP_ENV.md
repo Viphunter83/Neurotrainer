@@ -67,6 +67,11 @@ SENTRY_DSN=https://abc123@o123456.ingest.sentry.io/123456
    ```
    SLACK_WEBHOOK_URL=your_slack_webhook_url_here
    ```
+   
+   **Example format** (replace with your actual webhook):
+   ```
+   SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR_TEAM_ID/YOUR_BOT_ID/YOUR_TOKEN
+   ```
 
 ## GitHub Secrets Setup
 
