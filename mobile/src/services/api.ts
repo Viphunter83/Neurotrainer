@@ -104,6 +104,20 @@ export const authAPI = {
       token_type: response.data.token_type,
     };
   },
+
+  registerPushToken: async (tokenData: {
+    token: string;
+    platform: 'ios' | 'android';
+    device_id?: string;
+  }) => {
+    const response = await apiClient.post('/api/v1/push-tokens/register', tokenData);
+    return response.data;
+  },
+
+  unregisterPushToken: async (token: string) => {
+    const response = await apiClient.post('/api/v1/push-tokens/deactivate', { token });
+    return response.data;
+  },
 };
 
 export default apiClient;

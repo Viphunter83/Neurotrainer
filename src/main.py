@@ -14,6 +14,7 @@ from src.config import settings
 from src.database.database import engine, Base
 from src.api.v1.endpoints import health
 from src.api.v1.endpoints.auth import router as auth_router
+from src.api.v1.endpoints import push_tokens
 
 
 @asynccontextmanager
@@ -57,6 +58,7 @@ app.add_middleware(
 # Include routers
 app.include_router(health.router, tags=["Health"])
 app.include_router(auth_router, prefix=settings.API_V1_PREFIX, tags=["Authentication"])
+app.include_router(push_tokens.router, prefix=settings.API_V1_PREFIX, tags=["Push Tokens"])
 
 
 @app.get("/")

@@ -1,0 +1,6 @@
+# Local gitignore additions
+node_modules/
+.expo/
+dist/
+build/
+*.log

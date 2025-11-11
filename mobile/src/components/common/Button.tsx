@@ -49,7 +49,7 @@ const Button: React.FC<ButtonProps> = ({
   ];
 
   const buttonTextStyle = [
-    styles.text,
+    styles.textBase,
     styles[`text_${variant}`],
     styles[`textSize_${size}`],
     (disabled || isLoading) && styles.textDisabled,
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   disabled: {
     opacity: 0.5,
   },
-  text: {
+  textBase: {
     ...TYPOGRAPHY.bodyBold,
   },
   text_primary: {

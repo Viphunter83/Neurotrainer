@@ -23,6 +23,8 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { loginUser, clearError } from '../../store/slices/authSlice';
 import Button from '../../components/common/Button';
@@ -35,6 +37,7 @@ import {
   SHADOWS,
 } from '../../styles/theme';
 import { validateEmail, validatePassword } from '../../utils/validators';
+import { RootStackParamList } from '../../navigation/RootNavigator';
 
 interface FormErrors {
   email?: string;
@@ -47,11 +50,10 @@ interface FormValues {
   rememberMe: boolean;
 }
 
-interface LoginScreenProps {
-  navigation: any;
-}
+type LoginScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Login'>;
 
-const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
+const LoginScreen: React.FC = () => {
+  const navigation = useNavigation<LoginScreenNavigationProp>();
   const dispatch = useAppDispatch();
   const { isLoading, error } = useAppSelector((state) => state.auth);
 
@@ -268,7 +270,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
                 onPress={handleLogin}
                 disabled={!isFormValid}
                 isLoading={isLoading}
-                size="lg"
+                size="large"
                 style={{ marginTop: SPACING.lg }}
               />
 
@@ -286,7 +288,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
                   // TODO: Implement Google Sign-In
                 }}
                 variant="outline"
-                size="lg"
+                size="large"
               />
             </View>
 
@@ -323,15 +325,13 @@ const styles = StyleSheet.create({
     marginBottom: SPACING.xl,
   },
   title: {
-    fontSize: TYPOGRAPHY.h2.size,
-    fontWeight: TYPOGRAPHY.h2.weight,
+    ...TYPOGRAPHY.h2,
     color: COLORS.text,
     marginBottom: SPACING.sm,
   },
   subtitle: {
-    fontSize: TYPOGRAPHY.bodySmall.size,
+    ...TYPOGRAPHY.bodySmall,
     color: COLORS.textSecondary,
-    lineHeight: 20,
   },
   errorAlert: {
     backgroundColor: COLORS.errorLight,
@@ -343,7 +343,7 @@ const styles = StyleSheet.create({
   },
   errorAlertText: {
     color: COLORS.error,
-    fontSize: TYPOGRAPHY.body.size,
+    ...TYPOGRAPHY.body,
     fontWeight: '500',
   },
   form: {
@@ -375,7 +375,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   rememberMeText: {
-    fontSize: TYPOGRAPHY.body.size,
+    ...TYPOGRAPHY.body,
     color: COLORS.text,
   },
   divider: {
@@ -391,7 +391,7 @@ const styles = StyleSheet.create({
   dividerText: {
     marginHorizontal: SPACING.md,
     color: COLORS.textSecondary,
-    fontSize: TYPOGRAPHY.body.size,
+    ...TYPOGRAPHY.body,
   },
   footer: {
     flexDirection: 'row',
@@ -401,11 +401,11 @@ const styles = StyleSheet.create({
     paddingBottom: SPACING.md,
   },
   footerText: {
-    fontSize: TYPOGRAPHY.body.size,
+    ...TYPOGRAPHY.body,
     color: COLORS.textSecondary,
   },
   footerLink: {
-    fontSize: TYPOGRAPHY.body.size,
+    ...TYPOGRAPHY.body,
     color: COLORS.primary,
     fontWeight: '600',
   },

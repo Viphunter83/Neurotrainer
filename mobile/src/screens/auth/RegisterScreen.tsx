@@ -17,6 +17,8 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { registerUser, clearError } from '../../store/slices/authSlice';
 import Button from '../../components/common/Button';
@@ -28,6 +30,7 @@ import {
   BORDER_RADIUS,
 } from '../../styles/theme';
 import { validateEmail, validatePassword, validateUsername } from '../../utils/validators';
+import { RootStackParamList } from '../../navigation/RootNavigator';
 
 interface FormErrors {
   email?: string;
@@ -44,11 +47,10 @@ interface FormValues {
   fullName: string;
 }
 
-interface RegisterScreenProps {
-  navigation: any;
-}
+type RegisterScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Register'>;
 
-const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
+const RegisterScreen: React.FC = () => {
+  const navigation = useNavigation<RegisterScreenNavigationProp>();
   const dispatch = useAppDispatch();
   const { isLoading, error } = useAppSelector((state) => state.auth);
 

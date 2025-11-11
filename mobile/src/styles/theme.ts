@@ -28,8 +28,12 @@ export const COLORS = {
   // Status
   success: '#34C759',
   error: '#FF3B30',
+  errorLight: '#FFEBEE',
   warning: '#FF9500',
   info: '#007AFF',
+  
+  // Common
+  white: '#FFFFFF',
 
   // Borders
   border: '#C6C6C8',
@@ -90,6 +94,11 @@ export const TYPOGRAPHY = {
     fontSize: 12,
     fontWeight: '400' as const,
     lineHeight: 16,
+  },
+  bodySmall: {
+    fontSize: 14,
+    fontWeight: '400' as const,
+    lineHeight: 20,
   },
 };
 

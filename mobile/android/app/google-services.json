@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1023855329119",
+    "project_id": "neurotrainer-6449b",
+    "storage_bucket": "neurotrainer-6449b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1023855329119:android:e87a56bc96d930fcc3c0ea",
+        "android_client_info": {
+          "package_name": "com.fitnessai.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoMSU07visCSVnfH-Q2ThcXB1pjizpIWI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
+
