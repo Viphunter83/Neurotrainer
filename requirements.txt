@@ -33,6 +33,7 @@ opencv-python==4.8.1.78
 # Utilities
 pydantic==2.5.0
 pydantic-settings==2.1.0
+email-validator==2.1.0
 
 # Logging
 structlog==23.2.0
